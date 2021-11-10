@@ -166,9 +166,9 @@
          </Form.Group>
          
          <div className="alert-danger">
-             { error ?? error } &nbsp; &nbsp;
-             { errcode ?? errcode }
-             { status ?? status}
+             { error && error } &nbsp; &nbsp;
+             { errcode && errcode }
+             { status && status}
            </div>
          
         <br></br>
