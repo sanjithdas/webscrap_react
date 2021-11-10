@@ -14,19 +14,10 @@ export default class LineGraph extends React.Component {
     labels: [],
     datasets: [{}],
     yAxisMax: 0,
-    apidata: [] 
+    apidata: this.props.arrCol
    }
 
-   /**
-    * Component lifecycle method 
-    * will execute before the actual rendering happens
-    * componentWillMount() is mounted before the render() method and is essentially a constructor
-    */
-
-    UNSAFE_componentWillMount(){
-   this.setState({apidata: this.props.arrCol})
-  }
-
+   
   /**
    * called just after the render
    *  the component has already been rendered once by the time it invokes componentDidMount()
@@ -43,15 +34,15 @@ export default class LineGraph extends React.Component {
   drawLineGraph(){
     let data = [];
     let itemLabels = [];  
-    let yAxis = [];
+    let xAxis = [];
     this.state.apidata.map(arcol=>{   
       data.push(arcol.col1) 
-      yAxis.push(arcol.col2);   
+      xAxis.push(arcol.col2);   
       itemLabels.push(arcol.col3);     
     })
     this.setState({apidata: this.props.arrCol})
     this.setState({ 
-       labels:   yAxis[0],   
+       labels:   xAxis[0],   
         datasets:[
            {
               label: 'World Record Progression',         
